@@ -1,17 +1,29 @@
+from services.llm_service import ask_llm
+
+
 def writer_node(state):
 
+    task = state["task"]
     plan = state["plan"]
     research = state["research"]
 
-    return {
-        "final_output":
+    final_document = ask_llm(
         f"""
-Plan:
-{plan}
+        Create a final professional document.
 
-Research:
-{research}
+        Task:
+        {task}
 
-Final document generated.
-"""
+        Plan:
+        {plan}
+
+        Research:
+        {research}
+
+        Produce a polished final output.
+        """
+    )
+
+    return {
+        "final_output": final_document
     }
