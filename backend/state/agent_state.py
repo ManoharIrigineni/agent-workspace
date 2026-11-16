@@ -6,3 +6,6 @@ class AgentState(TypedDict):
     plan: str
     research: str
     final_output: str
+
+    approval_status: str
+    workflow_id: str
